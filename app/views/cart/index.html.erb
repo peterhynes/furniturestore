@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  
+  <h1 align="center">Your Cart</h1>
+  <br>
+  
+  <table class="table">
+  
+    <% @cart.each do |id, quantity | %>
+    
+    <% item = Item.find_by_id(id) %>
+    
+    <tr>
+      <td>
+        <div class="img-thumbnail">
+          <%= link_to (image_tag item.image_url, :style => "height:100px"), item %>
+        </div>
+      </td>
+      
+      <td>
+        <%= link_to item.title, item %>
+      </td>
+      
+      <td>
+        <a href="#">Remove from Cart</a>
+      </td>
+      
+      <td>
+        <%= number_to_currency(item.price, :unit => "€") %>
+      </td>
+      
+      <td>
+        <%= quantity %>
+      </td>
+      
+      <td>
+        <%= number_to_currency(quantity * item.price, :unit => "€") %>
+      </td>
+      
+    </tr>
+    
+    <% end %>
+    
+  </table>
+  
+  
+</div>

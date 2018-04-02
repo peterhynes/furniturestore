@@ -25,8 +25,14 @@
         
         <p>
           <%= link_to 'Show', item, :class =>"btn btn-primary", :role=>"button" %>
+          
+          <a href="/cart/<%= item.id %>" class="btn btn-primary">Add To Cart</a>
+          
+          <% if session[:login] == 1 %>
           <%= link_to 'Edit', edit_item_path(item), :class =>"btn btn-primary", :role=>"button" %>
           <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"btn btn-primary", :role=>"button" %>
+          
+          <% end %>
         </p>
         
         </div>
