@@ -6,7 +6,7 @@
   <br>
   
   <table class="table">
-  
+    <% total = 0 %>
     <% @cart.each do |id, quantity | %>
     
     <% item = Item.find_by_id(id) %>
@@ -23,7 +23,7 @@
       </td>
       
       <td>
-        <a href="#">Remove from Cart</a>
+        <a href="/cart/remove/<%= item.id %>">Remove from Cart</a>
       </td>
       
       <td>
@@ -36,6 +36,13 @@
       
       <td>
         <%= number_to_currency(quantity * item.price, :unit => "€") %>
+      </td>
+      
+    </tr>
+    
+    <tr> <% total += quantity * item.price %>
+      <td>
+        Grand Total: <%= number_to_currency(total, :unit => "€") %>
       </td>
       
     </tr>
