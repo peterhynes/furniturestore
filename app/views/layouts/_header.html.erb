@@ -19,22 +19,36 @@
             <a class="nav-link" <%= link_to "Help", help_path %></a>
           </li>
         </ul>
+        
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search">
           <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
         </form>
+        
         <ul class="nav navbar-nav navbar-right">
           
-          <% if session[:login] == 1 %>
+          <% if user_signed_in? %>
+          
           <li class="nav-item">
-            <a class="btn btn-outline-primary navbar-btn" <%= link_to "Log Out", logout_path %></a>
+            <a href="#">Hi <%= current_user.email %></a>
           </li>
+          
+          <li class="nav-item">
+            <a class="btn btn-outline-primary navbar-btn" <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></a>
+          </li>
+          
           <% else %>
           
           <li class="nav-item">
-            <a class="btn btn-outline-primary navbar-btn" <%= link_to "Log In", login_path %></a>
+            <a class="btn btn-outline-primary navbar-btn" <%= link_to 'Register', new_user_registration_path %></a>
           </li>
+          
+          <li class="nav-item">
+            <a class="btn btn-outline-primary navbar-btn" <%= link_to 'Sign In', new_user_session_path %></a>
+          </li>
+          
           <% end %>
+          
         </ul>
       </div>
     </nav>
