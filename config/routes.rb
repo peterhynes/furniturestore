@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   
   root :to => 'site#home'
   
-  get '/category/:title', to: 'static_pages#category'
+  get 'category/:title', to: 'static_pages#category'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
