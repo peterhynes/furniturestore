@@ -18,3 +18,22 @@
 }
 
 /*end of Home page hero image style*/
+
+/*
+.form-inline {
+    margin: auto;
+}
+*/
+
+@media (min-width: 992px){
+  .nav .btn {
+    margin-left: .5rem!important;
+  }
+}
+
+@media (max-width: 992px){
+  .nav .btn {
+    margin-bottom: .5rem!important;
+  }
+}
+

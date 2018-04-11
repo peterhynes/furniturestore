@@ -1,6 +1,25 @@
 Rails.application.routes.draw do
+  get 'orderitems/index'
+
+  get 'orderitems/show'
+
+  get 'orderitems/new'
+
+  get 'orderitems/edit'
+
+  resources :orders do
+    resources:orderitems
+  end
+  
+  
   resources :categories
-  devise_for :users
+  
+  devise_for :users do
+    resources:orders
+  end
+  
+  get '/checkout', to: 'cart#createOrder'
+  
   get 'cart/index'
 
   resources :items
@@ -12,7 +31,6 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   
   get '/login', to: 'user#login'
-  
   get '/logout', to: 'user#logout'
   
   get '/cart', to: 'cart#index'

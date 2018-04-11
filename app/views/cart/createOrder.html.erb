@@ -1,0 +1,44 @@
+<div class="container">
+
+<h2>Thank you</h2>
+<p>You have created an order</p>
+
+<table id="customers">
+  <tr>
+    <% @orders.limit(1).order(id: :desc).each do |order| %>
+    
+    <td> Order just placed reference: <%= order.id %></td>
+    <% end %>
+  </tr>
+</table>
+
+<table id="customers">
+  <% @total = 0 %>
+  
+  <% @orderitems.each do |id, quantity| %>
+  
+  
+  <tr>
+    <% item = Orderitem.find_by_id(id) %>
+    
+    <td><%= item.title %></td>
+    <td><%= item.quantity %></td>
+    <td><%= item.price %></td>
+    
+    
+  </tr>
+  
+  <% timx = (item.quantity * item.price) %>
+  
+  <% @total += timx %>
+  
+  <% end %>
+  
+  <tr>
+    <td>Order Total: <%= @total %></td>
+  </tr>
+  
+  
+</table>
+
+</div>
