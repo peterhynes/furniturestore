@@ -5,6 +5,10 @@
   <h1 align="center">Your Cart</h1>
   <br>
   
+  <% if @cart.empty? %>
+    <h1>Your cart is empthy</h1>
+  <% end %>
+  
   <table class="table">
     <% total = 0 %>
     <% @cart.each do |id, quantity | %>
