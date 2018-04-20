@@ -23,5 +23,9 @@ class StaticPagesController < ApplicationController
     session[:cart] = nil
   end
   
+  def search
+    st = "%#{params[:srcbx]}%"
+    @items = Item.where("title like ?", st)
+  end
   
 end

@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @user = User.find(current-user.id)
+    @orders = @user.orders.all
   end
 
   # GET /orders/1

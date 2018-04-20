@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   get '/login', to: 'user#login'
   get '/logout', to: 'user#logout'
   
+  post '/search', to: 'items#search'
+  
   get '/cart', to: 'cart#index'
   
   get '/cart/:id', to: 'cart#add'
