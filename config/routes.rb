@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   
   get '/checkout', to: 'cart#createOrder'
   
+  get '/paid', to: 'static_pages#paid'
+  
   get 'cart/index'
 
   resources :items
@@ -38,6 +40,8 @@ Rails.application.routes.draw do
   get '/cart/:id', to: 'cart#add'
   
   get '/cart/remove/:id', to: 'cart#remove'
+  
+  get '/clearcart', to: 'cart#clearCart'
   
   root :to => 'site#home'
   

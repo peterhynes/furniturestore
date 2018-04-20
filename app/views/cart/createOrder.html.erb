@@ -36,8 +36,21 @@
   
   <tr>
     <td>Order Total: <%= @total %></td>
+    <% shipping = 5 %>
+    <% @overall = shipping + @total %>
   </tr>
   
+  <tr>
+    <td>Shipping &euro;5</td>
+  </tr>
+  
+  <tr>
+    <td>You pay: <%= @overall %></td>
+  </tr>
+  
+  <tr>
+    <td><a href="/paid" class="btn btn-outline-primary">Pay Now</a></td>
+  </tr>
   
 </table>
 

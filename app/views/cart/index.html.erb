@@ -2,7 +2,7 @@
 
 <div class="container">
   
-  <h1 align="center">Your Cart</h1>
+  <h1 class="text-center">Your Cart</h1>
   <br>
   
   <% if @cart.empty? %>
@@ -57,6 +57,8 @@
     
   </table>
   
-  <a href="/checkout" class="button">Checkout</a>
+  <a href="/checkout" class="btn btn-outline-primary">Checkout</a>
+  
+  <a href="/clearcart" class="btn btn-outline-primary">Clear Cart</a>
   
 </div>

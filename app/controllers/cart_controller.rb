@@ -50,6 +50,11 @@ class CartController < ApplicationController
     
   end
   
+  def clearCart
+    session[:cart] = nil
+    redirect_to :action => :index
+  end
+  
   
   def createOrder
     

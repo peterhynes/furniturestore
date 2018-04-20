@@ -16,5 +16,12 @@ class StaticPagesController < ApplicationController
     
   end
   
+  def paid
+    @order = Order.last
+    @order.update_attribute(:status, "Paid in full by #{current_user.email}")
+    
+    session[:cart] = nil
+  end
+  
   
 end

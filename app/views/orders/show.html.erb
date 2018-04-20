@@ -1,19 +1,37 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Order date:</strong>
-  <%= @order.order_date %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @order.user %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @order.status %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class="container">
+  
+  <h1 class="text-center">Orders Details</h1>
+  
+  <table class="table">
+  
+    <tr>
+      <td><%= @order.order_date %></td>
+      <td><%= @order.user.email %></td>
+      <td><%= @order.status %></td>
+    </tr>
+    
+    
+  </table>
+  
+  
+  <h2 class="text-center">Orders Items</h2>
+  
+  <table class="table">
+    
+    <% @orderitems.each do |orderitem| %>
+  
+    <tr>
+      <td><%= orderitem.title %></td>
+      <td><%= orderitem.quantity %></td>
+    </tr>
+    
+    <tr>
+      <td><%= link_to 'Edit', edit_order_path(@order) %></td>
+      <td><%= link_to 'Back', orders_path %></td>
+    </tr>
+    
+    <% end %>
+  
+  </table>
+  
+</div>
