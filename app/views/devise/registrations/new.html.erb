@@ -1,32 +1,37 @@
-<body class="text-center">
-  <form class="form-signin">
-    <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+<div class="container text-center">
 
-        <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+  <h1>Sign up</h1>
         
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
         
-          <%= f.label :email, class: "sr-only" %>
-          <%= f.email_field :email, class: "form-control", placeholder: "Email address", autofocus: true %>
+    <div class="field">    
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
           
         
-          
-          <%= f.label :password, class: "sr-only" %>
-            <% if @minimum_password_length %>
-            <% end %>
-            <%= f.password_field :password, class: "form-control", placeholder: "Password", autocomplete: "off" %>
-          
-            <%= f.label :password_confirmation, class: "sr-only" %>
-            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password", autocomplete: "off" %>
+    <div class="field">
+      <%= f.label :password %><br />
+      <% if @minimum_password_length %>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+    <br />
           
         
-          <div>
-            <%= f.submit "Sign up", class: "btn btn-primary" %>
-          </div>
-        <% end %>
+    <div>
+      <%= f.submit "Sign up" %>
+    </div>
+    <% end %>
         
-        <%= render "devise/shared/links" %>
+   <%= render "devise/shared/links" %>
+   
+</div>
         
-  </form>
-</body>
+  
