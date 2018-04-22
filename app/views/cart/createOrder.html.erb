@@ -3,7 +3,7 @@
 <h2>Thank you</h2>
 <p>You have created an order</p>
 
-<table id="customers">
+<table>
   <tr>
     <% @orders.limit(1).order(id: :desc).each do |order| %>
     
@@ -12,7 +12,7 @@
   </tr>
 </table>
 
-<table id="customers">
+<table>
   <% @total = 0 %>
   
   <% @orderitems.each do |id, quantity| %>

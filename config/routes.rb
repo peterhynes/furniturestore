@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources:orders
   end
   
+  
   get '/checkout', to: 'cart#createOrder'
   
   get '/paid', to: 'static_pages#paid'
@@ -27,7 +28,10 @@ Rails.application.routes.draw do
   resources :items
   root 'static_pages#home'
   
-
+  resources :orders
+  root 'user#welcome'
+  
+  
   get '/help', to: 'static_pages#help'
 
   get '/about', to: 'static_pages#about'
@@ -46,6 +50,8 @@ Rails.application.routes.draw do
   get '/clearcart', to: 'cart#clearCart'
   
   root :to => 'site#home'
+  
+  get '/welcome' => "user#welcome", as: :user_root
   
   get 'category/:title', to: 'static_pages#category'
 

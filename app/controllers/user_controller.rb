@@ -13,5 +13,11 @@ class UserController < ApplicationController
     redirect_to :controller => :items
   end
   
+  def welcome
+    @user = User.find(current_user.id)
+    @orders = @user.orders.all
+    @order = Order.where(order_id: params[:id])
+    @orderitems = Orderitem.where(order_id: params[:id])
+  end
   
 end
