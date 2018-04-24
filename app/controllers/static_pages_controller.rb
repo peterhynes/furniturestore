@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     @categories = Category.all
+    @items = Item.all
   end
 
   def help
@@ -21,6 +22,7 @@ class StaticPagesController < ApplicationController
     @order.update_attribute(:status, "Paid in full by #{current_user.email}")
     
     session[:cart] = nil
+    @items = Item.all
   end
   
   def search

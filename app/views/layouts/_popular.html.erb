@@ -1,0 +1,40 @@
+<div class="container">
+
+  <h1 align="center">Popular Products</h1>
+  <br>
+
+    <div class="row">
+
+      
+        <% @items.limit(2).order(:id).each do |item| %>
+        
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            
+              <%= link_to (image_tag item.image_url, :class=> "img-fluid img-thumbnail"), item %>
+              
+                
+                  <%= link_to item.title, item %><br>
+               
+                
+                  <%= item.description %><br>
+                
+               
+                   <%= number_to_currency(item.price, :unit => "€") %><br>
+                
+                  <% if session[:login] ==1 %>
+                    <%= link_to 'Edit', edit_item_path(item) %>
+                    <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%else%>
+                  
+                  <br>
+                  
+                    <a href="/cart/<%= item.id %>" class="btn btn-primary">Add To Cart</a>
+                  <%end%>  
+             
+        </div>      
+          <% end %>
+        
+      
+    <div>
+
+</div>
